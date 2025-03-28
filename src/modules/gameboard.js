@@ -1,26 +1,30 @@
 import { Ship } from "./ship.js";
-import { helperFunctions } from "./helpers.js";
+import { gameboardHelperFunctions } from "./gameboard-helpers.js";
+import { shipHelperFunctions } from "./ship-helpers.js";
 
 class Gameboard {
-  constructor() {}
+  constructor(missed_shots = [], gameOver = false) {
+    this.missed_shots = missed_shots;
+    this.gameOver = gameOver;
+  }
 
   placeShips() {
     const shipLengthsArr = [2, 3, 3, 4, 5];
     const placedShips = [];
+    const ships = [];
     for (let i = 0; i < shipLengthsArr.length; i++) {
       let newShip = new Ship(shipLengthsArr[i]);
-      newShip.placement = helperFunctions.returnValidPlacements(
+      newShip.placement = gameboardHelperFunctions.returnValidPlacements(
         shipLengthsArr[i],
         placedShips
       );
+      newShip.placementSet = new Set(
+        newShip.placement.map((points) => points.toString())
+      );
       placedShips.push(newShip.placement);
+      ships.push(newShip);
     }
-    return placedShips;
+    shipHelperFunctions.addShipId(ships);
+    this.ships = ships;
   }
-
-  // receiveAttack(coordinates) {}
 }
-
-let gameboard = new Gameboard();
-
-console.log(gameboard.placeShips());

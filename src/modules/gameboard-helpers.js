@@ -1,4 +1,4 @@
-const helperFunctions = (function () {
+const gameboardHelperFunctions = (function () {
   function getRandomInt3AndUnder() {
     return Math.floor(Math.random() * 4);
   }
@@ -111,4 +111,4 @@ const helperFunctions = (function () {
   return { returnValidPlacements };
 })();
 
-export { helperFunctions };
+export { gameboardHelperFunctions };
