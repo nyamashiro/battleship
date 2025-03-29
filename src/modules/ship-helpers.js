@@ -5,7 +5,12 @@ const shipHelperFunctions = (function () {
     }
   }
 
-  return { addShipId };
+  function concatHitSet(hits) {
+    const concatSet = new Set(hits.map((points) => points.toString()));
+    return concatSet;
+  }
+
+  return { addShipId, concatHitSet };
 })();
 
 export { shipHelperFunctions };
