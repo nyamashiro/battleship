@@ -56,7 +56,6 @@ const gameController = (function () {
         receiveAttack;
         domEvents.updateBannerHit(banner, "Hit!");
         if (checkGameOver) {
-          console.log(computer.gameboard);
           handleGameOver();
           domEvents.updateBannerGameOver(banner, "You win!");
         }
@@ -97,7 +96,6 @@ const gameController = (function () {
   }
 
   function handleGameOver() {
-    console.log("GAME OVER!");
     gameOver = true;
   }
 
