@@ -10,7 +10,7 @@ class Gameboard {
     this.sunkShips = sunkShips;
   }
 
-  placeShips() {
+  createShips() {
     const shipLengthsArr = [2, 3, 3, 4, 5];
     const placedShips = [];
     const ships = [];
@@ -76,3 +76,12 @@ class Gameboard {
     }
   }
 }
+
+export { Gameboard };
+
+// let gameboard = new Gameboard();
+// gameboard.createShips();
+
+// console.log(shipHelperFunctions.concatPlacementSet(gameboard.ships));
+
+// console.dir(gameboard, { depth: null });
