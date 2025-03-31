@@ -1,5 +1,5 @@
-import { renderGameboards } from "./modules/renders.js";
+import { gameController } from "./modules/gameController";
 import "./modules/style.css";
 
-renderGameboards.createPlayerBoard();
-renderGameboards.createCpuBoard();
+gameController.initGame();
+gameController.newGame();

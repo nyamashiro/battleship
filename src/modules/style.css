@@ -13,6 +13,14 @@ body {
   padding: 20px;
 }
 
+.info {
+  font-size: 1.7rem;
+  background-color: rgb(255, 123, 123);
+  padding: 10px;
+  width: 80%;
+  text-align: center;
+}
+
 .player-board,
 .cpu-board {
   display: flex;
@@ -53,4 +61,31 @@ body {
 
 .visible {
   background-color: purple;
+}
+
+button {
+  padding: 5px;
+  font-size: 1.3rem;
+  border: solid 1px black;
+  border-radius: 10px;
+}
+
+.cpu {
+  cursor: pointer;
+}
+
+.cell.cpu:not(.checked):hover {
+  background-color: rgb(218, 218, 218);
+}
+
+.hit {
+  background-color: red;
+}
+
+.miss {
+  background-color: aqua;
+}
+
+.checked {
+  cursor: default;
 }

@@ -37,42 +37,33 @@ class Gameboard {
       this.missedShots.map((shots) => shots.toString())
     );
 
-    if (missedShotsSet.has(coordinates.toString())) {
-      //should run receiveAttack once more but with different coordinates
-      // console.log("OOPS THIS SHOT IS A MISSED SHOT");
-      return;
-    }
-
-    if (concatHitSet.has(coordinates.toString())) {
-      //should run receiveAttack once more but with different coordinates
-      // console.log("OOPS THIS SHOT ALREADY HIT");
-      return;
+    if (missedShotsSet.has(coordinates) || concatHitSet.has(coordinates)) {
+      this.receiveAttack(gameboardHelperFunctions.getRandomCoordinates());
     }
 
     let hit = false;
     for (let i = 0; i < this.ships.length; i++) {
-      if (this.ships[i].placementSet.has(coordinates.toString())) {
+      if (this.ships[i].placementSet.has(coordinates)) {
         this.ships[i].numOfHits += 1;
         this.hits.push(coordinates);
         this.ships[i].isSunk();
         if (this.ships[i].sunk) {
           this.sunkShips.push(this.ships[i].id);
-          this.checkGameOver();
         }
         hit = true;
-        return;
+        return "hit";
       }
     }
     if (!hit) {
       this.missedShots.push(coordinates);
+      return "miss";
     }
   }
 
   checkGameOver() {
     if (this.sunkShips.length === this.ships.length) {
       this.gameOver = true;
-      console.log("GAME OVER!!!!");
-      return;
+      return true;
     }
   }
 }

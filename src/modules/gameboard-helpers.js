@@ -8,6 +8,11 @@ const gameboardHelperFunctions = (function () {
     const y = Math.floor(Math.random() * 10);
     return [x, y];
   }
+  function getRandomCoordinates() {
+    const x = Math.floor(Math.random() * 10);
+    const y = Math.floor(Math.random() * 10);
+    return [x, y].toString();
+  }
 
   function LtoRPlacement(length) {
     const leftToRight = [1, 0];
@@ -108,7 +113,7 @@ const gameboardHelperFunctions = (function () {
     return placements;
   }
 
-  return { returnValidPlacements };
+  return { returnValidPlacements, getRandomCoordinates };
 })();
 
 export { gameboardHelperFunctions };

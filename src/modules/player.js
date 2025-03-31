@@ -7,15 +7,15 @@ class Player {
 }
 
 const createPlayer = function () {
-  let player = new Gameboard();
-  player.createShips();
+  let player = new Player(new Gameboard());
+  player.gameboard.createShips();
   return player;
 };
 
 const createComputer = function () {
-  let computer = new Gameboard();
-  computer.createShips();
+  let computer = new Player(new Gameboard());
+  computer.gameboard.createShips();
   return computer;
 };
 
-export { createPlayer, createComputer };
+export { createPlayer, createComputer, Player };
